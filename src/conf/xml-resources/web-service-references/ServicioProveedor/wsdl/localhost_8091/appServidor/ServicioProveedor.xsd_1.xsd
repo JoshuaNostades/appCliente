@@ -1,0 +1,128 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is JAX-WS RI 2.2-hudson-740-. --><xs:schema xmlns:tns="http://services/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://services/">
+
+<xs:element name="actualizarProveedor" type="tns:actualizarProveedor" />
+
+<xs:element name="actualizarProveedorResponse" type="tns:actualizarProveedorResponse" />
+
+<xs:element name="eliminarProveedor" type="tns:eliminarProveedor" />
+
+<xs:element name="eliminarProveedorResponse" type="tns:eliminarProveedorResponse" />
+
+<xs:element name="insertarProveedor" type="tns:insertarProveedor" />
+
+<xs:element name="insertarProveedorResponse" type="tns:insertarProveedorResponse" />
+
+<xs:element name="listarProveedores" type="tns:listarProveedores" />
+
+<xs:element name="listarProveedoresResponse" type="tns:listarProveedoresResponse" />
+
+<xs:element name="obtenerNombreEmpresa" type="tns:obtenerNombreEmpresa" />
+
+<xs:element name="obtenerNombreEmpresaResponse" type="tns:obtenerNombreEmpresaResponse" />
+
+<xs:element name="obtenerProveedor" type="tns:obtenerProveedor" />
+
+<xs:element name="obtenerProveedorResponse" type="tns:obtenerProveedorResponse" />
+
+<xs:complexType name="eliminarProveedor">
+<xs:sequence>
+<xs:element name="idProveedor" type="xs:int" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="eliminarProveedorResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:boolean" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="obtenerNombreEmpresa">
+<xs:sequence>
+<xs:element name="idProveedor" type="xs:int" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="obtenerNombreEmpresaResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="obtenerProveedor">
+<xs:sequence>
+<xs:element name="idProveedor" type="xs:int" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="obtenerProveedorResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:proveedor" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="proveedor">
+<xs:sequence>
+<xs:element name="calificacion" type="xs:double" />
+<xs:element name="direccion" type="xs:string" minOccurs="0" />
+<xs:element name="disponibilidad" type="xs:string" minOccurs="0" />
+<xs:element name="email" type="xs:string" minOccurs="0" />
+<xs:element name="idEmpleado" type="xs:int" />
+<xs:element name="idProveedor" type="xs:int" />
+<xs:element name="nombreEmpresa" type="xs:string" minOccurs="0" />
+<xs:element name="ruc" type="xs:string" minOccurs="0" />
+<xs:element name="serviciosOfrecidos" type="xs:string" minOccurs="0" />
+<xs:element name="telefono" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="listarProveedores">
+<xs:sequence />
+</xs:complexType>
+
+<xs:complexType name="listarProveedoresResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:proveedor" minOccurs="0" maxOccurs="unbounded" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="actualizarProveedor">
+<xs:sequence>
+<xs:element name="idProveedor" type="xs:int" />
+<xs:element name="idEmpleado" type="xs:int" />
+<xs:element name="nombreEmpresa" type="xs:string" minOccurs="0" />
+<xs:element name="ruc" type="xs:string" minOccurs="0" />
+<xs:element name="telefono" type="xs:string" minOccurs="0" />
+<xs:element name="email" type="xs:string" minOccurs="0" />
+<xs:element name="direccion" type="xs:string" minOccurs="0" />
+<xs:element name="serviciosOfrecidos" type="xs:string" minOccurs="0" />
+<xs:element name="calificacion" type="xs:double" />
+<xs:element name="disponibilidad" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="actualizarProveedorResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:boolean" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="insertarProveedor">
+<xs:sequence>
+<xs:element name="idEmpleado" type="xs:int" />
+<xs:element name="nombreEmpresa" type="xs:string" minOccurs="0" />
+<xs:element name="ruc" type="xs:string" minOccurs="0" />
+<xs:element name="telefono" type="xs:string" minOccurs="0" />
+<xs:element name="email" type="xs:string" minOccurs="0" />
+<xs:element name="direccion" type="xs:string" minOccurs="0" />
+<xs:element name="serviciosOfrecidos" type="xs:string" minOccurs="0" />
+<xs:element name="calificacion" type="xs:double" />
+<xs:element name="disponibilidad" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="insertarProveedorResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:boolean" />
+</xs:sequence>
+</xs:complexType>
+</xs:schema>

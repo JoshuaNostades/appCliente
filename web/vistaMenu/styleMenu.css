@@ -1,0 +1,165 @@
+/* Ocultar scroll visual pero permitir rueda del mouse */
+.sidebar-nav {
+    padding: 8px 0;
+    overflow-y: auto;
+    flex: 1;
+}
+.sidebar-nav::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+}
+
+/* SIDEBAR LIGHT */
+#sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 70px;
+    background: #f8f9fa; /* Fondo claro */
+    color: #212529;
+    transition: width 0.25s ease;
+    z-index: 1050;
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid #dee2e6;
+}
+
+#sidebar.expanded {
+    width: 240px;
+}
+
+/* Botón pin */
+#toggle-btn {
+    position: absolute;
+    top: 12px;
+    right: -20px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #f8f9fa;
+    color: #212529;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border: 2px solid rgba(0, 0, 0, 0.05);
+}
+
+/* PROFILE */
+.profile-section {
+    text-align: center;
+    padding: 14px 10px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+    transition: all 0.2s;
+}
+
+.profile-section img {
+    width: 52px;
+    height: 52px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 2px solid rgba(0, 0, 0, 0.1);
+}
+
+.profile-info {
+    opacity: 0;
+    transition: opacity 0.2s;
+    max-height: 0;
+    overflow: hidden;
+}
+
+#sidebar.expanded .profile-info {
+    opacity: 1;
+    max-height: 100px;
+}
+
+/* NAV LINKS */
+.sidebar-nav {
+    padding: 8px 0;
+    overflow-y: auto;
+    flex: 1;
+}
+
+.sidebar-nav .nav-link {
+    color: #333;
+    padding: 12px 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* iconos centrados */
+    white-space: nowrap;
+    transition: background 0.15s, color 0.15s;
+    text-decoration: none;
+    border-radius: 6px;
+}
+
+.sidebar-nav .nav-link:hover {
+    background: rgba(0, 0, 0, 0.05);
+    color: #000;
+}
+
+.sidebar-nav .nav-link i {
+    width: 24px;
+    text-align: center;
+    font-size: 1.2rem;
+    flex: 0 0 24px;
+}
+
+/* Ocultar textos cuando está colapsado */
+.sidebar-nav .label {
+    opacity: 0;
+    transform: translateX(-6px);
+    transition: opacity 0.2s, transform 0.2s;
+    display: none;
+    color: #333;
+}
+
+#sidebar.expanded .sidebar-nav .nav-link {
+    justify-content: flex-start; /* vuelve normal al expandirse */
+    gap: 8px;
+}
+
+#sidebar.expanded .sidebar-nav .label {
+    display: inline-block;
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* SUBMENUS */
+.submenu {
+    background: #ffffff;
+    margin-left: 38px;
+    border-left: 2px solid rgba(0, 0, 0, 0.05);
+}
+
+.submenu .nav-link {
+    padding: 8px 12px;
+    font-size: 0.92rem;
+    color: #555;
+}
+
+/* Ocultar submenus cuando colapsa */
+#sidebar:not(.expanded) .collapse {
+    display: none !important;
+}
+
+/* Chevron animado */
+.chev-rotate {
+    transition: transform 0.25s;
+}
+
+.chev-open {
+    transform: rotate(180deg);
+}
+
+/* MAIN CONTENT */
+.content {
+    margin-left: 70px;
+    transition: margin-left 0.25s;
+    padding: 20px;
+}
+
+#sidebar.expanded ~ .content {
+    margin-left: 240px;
+}

@@ -1,0 +1,113 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is JAX-WS RI 2.2-hudson-740-. --><xs:schema xmlns:tns="http://services/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://services/">
+
+<xs:element name="actualizarEvento" type="tns:actualizarEvento" />
+
+<xs:element name="actualizarEventoResponse" type="tns:actualizarEventoResponse" />
+
+<xs:element name="agregarEvento" type="tns:agregarEvento" />
+
+<xs:element name="agregarEventoResponse" type="tns:agregarEventoResponse" />
+
+<xs:element name="eliminarEvento" type="tns:eliminarEvento" />
+
+<xs:element name="eliminarEventoResponse" type="tns:eliminarEventoResponse" />
+
+<xs:element name="listarEventos" type="tns:listarEventos" />
+
+<xs:element name="listarEventosResponse" type="tns:listarEventosResponse" />
+
+<xs:element name="obtenerEventoPorId" type="tns:obtenerEventoPorId" />
+
+<xs:element name="obtenerEventoPorIdResponse" type="tns:obtenerEventoPorIdResponse" />
+
+<xs:complexType name="actualizarEvento">
+<xs:sequence>
+<xs:element name="id_evento" type="xs:int" />
+<xs:element name="id_empleado" type="xs:int" />
+<xs:element name="id_proveedor" type="xs:int" />
+<xs:element name="titulo" type="xs:string" minOccurs="0" />
+<xs:element name="categoria" type="xs:string" minOccurs="0" />
+<xs:element name="fecha_evento" type="xs:string" minOccurs="0" />
+<xs:element name="lugar" type="xs:string" minOccurs="0" />
+<xs:element name="estado" type="xs:string" minOccurs="0" />
+<xs:element name="descripcion" type="xs:string" minOccurs="0" />
+<xs:element name="imagen" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="actualizarEventoResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:int" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="agregarEvento">
+<xs:sequence>
+<xs:element name="id_empleado" type="xs:int" />
+<xs:element name="id_proveedor" type="xs:int" />
+<xs:element name="titulo" type="xs:string" minOccurs="0" />
+<xs:element name="categoria" type="xs:string" minOccurs="0" />
+<xs:element name="fecha_evento" type="xs:string" minOccurs="0" />
+<xs:element name="lugar" type="xs:string" minOccurs="0" />
+<xs:element name="estado" type="xs:string" minOccurs="0" />
+<xs:element name="descripcion" type="xs:string" minOccurs="0" />
+<xs:element name="imagen" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="agregarEventoResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:int" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="eliminarEvento">
+<xs:sequence>
+<xs:element name="id_evento" type="xs:int" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="eliminarEventoResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:int" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="listarEventos">
+<xs:sequence />
+</xs:complexType>
+
+<xs:complexType name="listarEventosResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:evento" minOccurs="0" maxOccurs="unbounded" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="evento">
+<xs:sequence>
+<xs:element name="categoria" type="xs:string" minOccurs="0" />
+<xs:element name="descripcion" type="xs:string" minOccurs="0" />
+<xs:element name="estado" type="xs:string" minOccurs="0" />
+<xs:element name="fecha_creacion" type="xs:string" minOccurs="0" />
+<xs:element name="fecha_evento" type="xs:string" minOccurs="0" />
+<xs:element name="id_empleado" type="xs:int" />
+<xs:element name="id_evento" type="xs:int" />
+<xs:element name="id_proveedor" type="xs:int" minOccurs="0" />
+<xs:element name="imagen" type="xs:string" minOccurs="0" />
+<xs:element name="lugar" type="xs:string" minOccurs="0" />
+<xs:element name="titulo" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="obtenerEventoPorId">
+<xs:sequence>
+<xs:element name="id_evento" type="xs:int" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="obtenerEventoPorIdResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:evento" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+</xs:schema>

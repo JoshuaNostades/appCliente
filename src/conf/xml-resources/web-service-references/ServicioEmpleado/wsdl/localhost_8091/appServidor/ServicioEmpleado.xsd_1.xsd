@@ -1,0 +1,159 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is JAX-WS RI 2.2-hudson-740-. --><xs:schema xmlns:tns="http://services/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://services/">
+
+<xs:element name="actualizarEmpleado" type="tns:actualizarEmpleado" />
+
+<xs:element name="actualizarEmpleadoResponse" type="tns:actualizarEmpleadoResponse" />
+
+<xs:element name="eliminarEmpleado" type="tns:eliminarEmpleado" />
+
+<xs:element name="eliminarEmpleadoResponse" type="tns:eliminarEmpleadoResponse" />
+
+<xs:element name="listarEmpleados" type="tns:listarEmpleados" />
+
+<xs:element name="listarEmpleadosResponse" type="tns:listarEmpleadosResponse" />
+
+<xs:element name="login" type="tns:login" />
+
+<xs:element name="loginResponse" type="tns:loginResponse" />
+
+<xs:element name="obtenerEmpleadoPorEmail" type="tns:obtenerEmpleadoPorEmail" />
+
+<xs:element name="obtenerEmpleadoPorEmailResponse" type="tns:obtenerEmpleadoPorEmailResponse" />
+
+<xs:element name="obtenerEmpleadoPorId" type="tns:obtenerEmpleadoPorId" />
+
+<xs:element name="obtenerEmpleadoPorIdResponse" type="tns:obtenerEmpleadoPorIdResponse" />
+
+<xs:element name="obtenerNombreApellido" type="tns:obtenerNombreApellido" />
+
+<xs:element name="obtenerNombreApellidoResponse" type="tns:obtenerNombreApellidoResponse" />
+
+<xs:element name="registrarEmpleado" type="tns:registrarEmpleado" />
+
+<xs:element name="registrarEmpleadoResponse" type="tns:registrarEmpleadoResponse" />
+
+<xs:complexType name="eliminarEmpleado">
+<xs:sequence>
+<xs:element name="idEmpleado" type="xs:int" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="eliminarEmpleadoResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:boolean" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="listarEmpleados">
+<xs:sequence />
+</xs:complexType>
+
+<xs:complexType name="listarEmpleadosResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:empleado" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="empleado">
+<xs:sequence>
+<xs:element name="apellido" type="xs:string" minOccurs="0" />
+<xs:element name="dni" type="xs:string" minOccurs="0" />
+<xs:element name="email" type="xs:string" minOccurs="0" />
+<xs:element name="estado" type="xs:string" minOccurs="0" />
+<xs:element name="fecha_registro" type="xs:dateTime" minOccurs="0" />
+<xs:element name="id_empleado" type="xs:int" />
+<xs:element name="id_tipo" type="xs:int" />
+<xs:element name="nombre" type="xs:string" minOccurs="0" />
+<xs:element name="password" type="xs:string" minOccurs="0" />
+<xs:element name="telefono" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="obtenerEmpleadoPorEmail">
+<xs:sequence>
+<xs:element name="email" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="obtenerEmpleadoPorEmailResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:empleado" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="obtenerNombreApellido">
+<xs:sequence>
+<xs:element name="idEmpleado" type="xs:int" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="obtenerNombreApellidoResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="login">
+<xs:sequence>
+<xs:element name="email" type="xs:string" minOccurs="0" />
+<xs:element name="password" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="loginResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:boolean" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="actualizarEmpleado">
+<xs:sequence>
+<xs:element name="idEmpleado" type="xs:int" />
+<xs:element name="idTipo" type="xs:int" />
+<xs:element name="dni" type="xs:string" minOccurs="0" />
+<xs:element name="nombre" type="xs:string" minOccurs="0" />
+<xs:element name="apellido" type="xs:string" minOccurs="0" />
+<xs:element name="email" type="xs:string" minOccurs="0" />
+<xs:element name="password" type="xs:string" minOccurs="0" />
+<xs:element name="telefono" type="xs:string" minOccurs="0" />
+<xs:element name="estado" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="actualizarEmpleadoResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:boolean" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="registrarEmpleado">
+<xs:sequence>
+<xs:element name="idTipo" type="xs:int" />
+<xs:element name="dni" type="xs:string" minOccurs="0" />
+<xs:element name="nombre" type="xs:string" minOccurs="0" />
+<xs:element name="apellido" type="xs:string" minOccurs="0" />
+<xs:element name="email" type="xs:string" minOccurs="0" />
+<xs:element name="password" type="xs:string" minOccurs="0" />
+<xs:element name="telefono" type="xs:string" minOccurs="0" />
+<xs:element name="estado" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="registrarEmpleadoResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:boolean" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="obtenerEmpleadoPorId">
+<xs:sequence>
+<xs:element name="idEmpleado" type="xs:int" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="obtenerEmpleadoPorIdResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:empleado" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+</xs:schema>

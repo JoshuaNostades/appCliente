@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
+    <system systemId="http://localhost:8091/appServidor/ServicioCliente?wsdl" uri="src/conf/xml-resources/web-service-references/ServicioCliente/wsdl/localhost_8091/appServidor/ServicioCliente.wsdl"/>
+    <system systemId="http://localhost:8091/appServidor/ServicioCliente?xsd=1" uri="src/conf/xml-resources/web-service-references/ServicioCliente/wsdl/localhost_8091/appServidor/ServicioCliente.xsd_1.xsd"/>
+    <system systemId="http://localhost:8091/appServidor/ServicioEmpleado?wsdl" uri="src/conf/xml-resources/web-service-references/ServicioEmpleado/wsdl/localhost_8091/appServidor/ServicioEmpleado.wsdl"/>
+    <system systemId="http://localhost:8091/appServidor/ServicioEmpleado?xsd=1" uri="src/conf/xml-resources/web-service-references/ServicioEmpleado/wsdl/localhost_8091/appServidor/ServicioEmpleado.xsd_1.xsd"/>
+    <system systemId="http://localhost:8091/appServidor/ServicioProveedor?wsdl" uri="src/conf/xml-resources/web-service-references/ServicioProveedor/wsdl/localhost_8091/appServidor/ServicioProveedor.wsdl"/>
+    <system systemId="http://localhost:8091/appServidor/ServicioProveedor?xsd=1" uri="src/conf/xml-resources/web-service-references/ServicioProveedor/wsdl/localhost_8091/appServidor/ServicioProveedor.xsd_1.xsd"/>
+    <system systemId="http://localhost:8091/appServidor/ServicioEvento?wsdl" uri="src/conf/xml-resources/web-service-references/ServicioEvento/wsdl/localhost_8091/appServidor/ServicioEvento.wsdl"/>
+    <system systemId="http://localhost:8091/appServidor/ServicioEvento?xsd=1" uri="src/conf/xml-resources/web-service-references/ServicioEvento/wsdl/localhost_8091/appServidor/ServicioEvento.xsd_1.xsd"/>
+</catalog>
