@@ -46,10 +46,8 @@
 
         <div class="profile-info">
             <h6 class="mb-1"><%= t.getNombre() + " " + t.getApellido()%></h6>
-            <p class="mb-1 text-secondary">
-                Cargo: 
-                <%= (t.getIdTipo() == 1) ? "Empleado" : "Cliente"%>
-            </p>
+           
+            
 
             <p class="mb-0 text-primary"><i class="bi bi-envelope-fill me-1"></i><%= t.getEmail()%></p>
         </div>
@@ -61,10 +59,7 @@
     <nav class="sidebar-nav nav flex-column px-1" id="sidebarNav">
 
 
-        <a class="nav-link" href="<%= request.getContextPath()%>/vistaCliente/vInicio.jsp">
-            <i class="bi bi-house-door-fill"></i>
-            <span class="label">Inicio</span>
-        </a>
+      
 
         <a class="nav-link" href="<%= request.getContextPath()%>/vistaCliente/vEventos.jsp">
             <i class="bi bi-calendar-event-fill"></i>
@@ -80,10 +75,7 @@
 
    
 
-        <a class="nav-link" href="<%= request.getContextPath()%>/vistaCliente/vConfigUser.jsp">
-            <i class="bi bi-person-circle"></i>
-            <span class="label">Perfil</span>
-        </a>
+        
 
 
         <a href="#" class="nav-link" onclick="confirmLogout()">

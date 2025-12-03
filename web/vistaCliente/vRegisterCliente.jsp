@@ -69,7 +69,8 @@
 
             /* PANEL IZQUIERDO */
             .lado-izquierdo {
-                background: linear-gradient(135deg, #476e9e, #304c89);
+               background: linear-gradient(135deg, #43e97b, #38f9d7);
+
                 color: #fff;
                 flex: 0.35;
                 display: flex;
@@ -216,9 +217,9 @@
 
         <div class="contenedor">
             <div class="lado-izquierdo">
-                <h2>Regístrate y forma parte</h2>
+                <h2>Regístrate y forma parte de EVENTOS PERU</h2>
                 <p>Accede a nuestros servicios exclusivos de forma segura y rápida.</p>
-                <img src="<%= request.getContextPath()%>/images/imgCelb.png" alt="Eventos">
+                <img src="<%= request.getContextPath()%>/images/drago.png" alt="Eventos">
 
             </div>
 

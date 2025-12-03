@@ -137,7 +137,7 @@
     </head>
 
     <body style="
-          background-image: url('<%= request.getContextPath()%>/images/fondoappp.jpg');
+          background-image: url('<%= request.getContextPath()%>/images/fondoGris.jpg');
           background-size: cover;
           background-position: center;
           background-repeat: no-repeat;
@@ -152,119 +152,123 @@
 
 
 
+        <style>
+            .prov-card {
+                width: 200px;
+                border-radius: 18px;
+                overflow: hidden;
+                background: #fff;
+                transition: transform .25s ease, box-shadow .25s ease;
+                box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            }
+
+            .prov-card:hover {
+                transform: translateY(-6px);
+                box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+            }
+
+            .prov-img {
+                width: 100%;
+                height: 120px;
+                object-fit: cover;
+            }
+
+            .prov-body {
+                padding: 12px;
+                text-align: center;
+            }
+
+            .badge-cat {
+                padding: 3px 8px;
+                border-radius: 10px;
+                font-size: .7rem;
+            }
+
+            .scroll-container {
+                overflow-x: auto;
+                white-space: nowrap;
+                padding-bottom: 15px;
+            }
+
+            .scroll-grid {
+                display: flex;
+                gap: 20px;
+            }
+        </style>
+        
+         <div class="content">
+
         <div class="d-flex justify-content-center align-items-center ms-3" style="height: 100vh;">
-            <div class="card border-0" style="min-height: 90vh; width: 85%; opacity: 0.9;">
+            <div class="card border-0" style="min-height: 90vh; width: 90%; opacity: .97;">
 
-
-                <div class="card-header bg-secondary text-white d-flex justify-content-between align-items-center">
-                    <h3 class="mb-0">Participaciones de empresas para nuestra marca</h3>
+                <div class="card-header text-white d-flex justify-content-between align-items-center"
+                     style="background: linear-gradient(135deg, #009688, #00695c); border-radius: 10px 10px 0 0;">
+                    <h3 class="mb-0">Proveedores asistidos</h3>
                     <button class="btn btn-light" data-bs-toggle="modal" data-bs-target="#">
-                        <i class="bi bi-person-plus fs-3"></i>
+                         <i class="bi bi-peaple fs-3"></i>
                     </button>
                 </div>
 
-                <div class="card-body p-5">
+                <div class="card-body p-4">
 
+                    <!-- SCROLL -->
+                    <div class="scroll-container">
+                        <div class="scroll-grid">
 
+                            <%
+                                for (Proveedor p : lista) {
 
-                    <div class="container-fluid">
+                                    // ASIGNAR IMAGEN SEGÚN CATEGORÍA
+                                    String imgCategoria = "images/defaultt.jpg";
 
+                                    switch (p.getServiciosOfrecidos() != null ? p.getServiciosOfrecidos().toUpperCase() : "") {
+                                        case "ANIVERSARIO":
+                                            imgCategoria = "images/aniversario.jpg";
+                                            break;
+                                        case "MATRIMONIO":
+                                            imgCategoria = "images/matrimonio.jpg";
+                                            break;
+                                        case "INTEGRACION":
+                                            imgCategoria = "images/integracion.jpg";
+                                            break;
+                                        case "OTRO":
+                                            imgCategoria = "images/otro.jpg";
+                                            break;
+                                    }
+                            %>
 
+                            <!-- CARD -->
+                            <div class="prov-card">
+                                <img src="<%= request.getContextPath() + "/" + imgCategoria%>" class="prov-img">
 
-                        <!-- CONTENEDOR SCROLL HORIZONTAL -->
-                        <!-- CONTENEDOR SCROLL HORIZONTAL CON 2 FILAS -->
-                        <!-- CONTENEDOR SCROLL HORIZONTAL -->
-                        <div style="
-                             overflow-x: auto;
-                             white-space: nowrap;
-                             
-                             scroll-behavior: smooth;
-                             ">
+                                <div class="prov-body">
+                                    <h6 class="fw-bold mb-1"><%= p.getNombreEmpresa()%></h6>
 
-                            <!-- GRID DE 2 FILAS -->
-                            <div style="
-                                 display: grid;
-                                 grid-auto-flow: column;
-                                 grid-template-rows: repeat(3, auto);
-                                 gap: 18px;
-                                 ">
+                                    <span class="badge bg-secondary mb-1" style="font-size: .75rem;">
+                                        RUC: <%= p.getRuc()%>
+                                    </span>
 
-                                <% for (Proveedor p : lista) {
-                                        String img = (p.getServiciosOfrecidos() != null && !p.getServiciosOfrecidos().isEmpty())
-                                                ? "img/" + p.getServiciosOfrecidos()
-                                                : "img/fondoappp.jpg";
-                                %>
-
-                                <!-- TARJETA COMPACTA -->
-                                <div class="card shadow-sm"
-                                     style="width: 180px; border-radius: 15px; padding: 10px;">
-
-                                    <!-- Imagen tipo logo -->
-                                    <div style="
-                                         width: 100%;
-                                         height: 90px;
-                                         background: #f2f2f2;
-                                         border-radius: 12px;
-                                         display: flex;
-                                         align-items: center;
-                                         justify-content: center;
-                                         overflow: hidden;
-                                         ">
-                                        <img src="<%= request.getContextPath()%>/images/fondoappp.jpg" style="width: 70%; height: 70%; object-fit: contain;">
+                                    <div style="font-size: .85rem; color: #ff9800;">
+                                        ⭐ <%= p.getCalificacion()%>
                                     </div>
 
-                                    <div class="card-body text-center" style="padding: 8px;">
-                                        <h6 class="fw-bold" style="font-size: .90rem; margin-bottom: 4px;">
-                                            <%= p.getNombreEmpresa()%>
-                                        </h6>
-
-                                        <p class="text-muted" style="font-size: .75rem; margin-bottom: 2px;">
-                                            RUC: <%= p.getRuc()%>
-                                        </p>
-
-                                        <p style="font-size: .80rem; color: #ff9800; margin-bottom: 2px;">
-                                            ⭐ <%= p.getCalificacion()%>
-                                        </p>
-
-                                        <p class="fw-semibold"
-                                           style="font-size: .78rem; color:<%= p.getDisponibilidad().equals("DISPONIBLE") ? "#28a745" : "#dc3545"%>;">
-                                            <%= p.getDisponibilidad()%>
-                                        </p>
-                                    </div>
-
+                                    <span class="badge-cat mt-1"
+                                          style="background:<%= p.getDisponibilidad().equals("DISPONIBLE") ? "#c8f7dc" : "#ffd6d6"%>;
+                                          color:<%= p.getDisponibilidad().equals("DISPONIBLE") ? "#2e7d32" : "#c62828"%>;">
+                                        <%= p.getDisponibilidad()%>
+                                    </span>
                                 </div>
-                                <% }%>
-
                             </div>
 
+                            <% }%>
+
                         </div>
-
-
-
                     </div>
-
-
-                    <!-- SCRIPT PARA AUTO-SLIDE -->
-                    <script>
-                        const cont = document.getElementById("scrollProveedores");
-
-                        function autoSlide() {
-                            cont.scrollLeft += 1;
-
-                            if (cont.scrollLeft + cont.clientWidth >= cont.scrollWidth) {
-                                cont.scrollLeft = 0;
-                            }
-                        }
-
-                        setInterval(autoSlide, 30);
-                    </script>
-
-
                 </div>
 
             </div>
-
         </div>
+</div>
 
 
         <!-- Bootstrap JS -->

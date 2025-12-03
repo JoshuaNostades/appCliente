@@ -135,7 +135,7 @@
     </head>
 
     <body style="
-          background-image: url('<%= request.getContextPath()%>/images/fondoappp.jpg');
+          background-image: url('<%= request.getContextPath()%>/images/fondoGris.jpg');
           background-size: cover;
           background-position: center;
           background-repeat: no-repeat;
@@ -226,156 +226,155 @@
 
 
 
-
-        <div class="d-flex justify-content-center align-items-center ms-3" style="height: 100vh;">
-            <div class="card border-0" style="min-height: 90vh; width: 85%; opacity: 0.9;">
-
-
-                <div class="card-header bg-secondary text-white d-flex justify-content-between align-items-center">
-                    <h3 class="mb-0">Eventos disponibles</h3>
-                    <button class="btn btn-light" data-bs-toggle="modal" data-bs-target="#">
-                        <i class="bi bi-person-plus fs-3"></i>
-                    </button>
-                </div>
-
-                <div class="card-body p-5">
+        <div class="content">
+            <div class="d-flex justify-content-center align-items-center" style="height: 100vh;">
+                <div class="card border-0" style="min-height: 100vh; width: 100%;">
 
 
+                    <div class="card-header bg-secondary text-white d-flex justify-content-between align-items-center">
+                        <h3 class="mb-0">Eventos disponibles</h3>
+                        <button class="btn btn-light" data-bs-toggle="modal" data-bs-target="#">
+                            <i class="bi bi-peaple fs-3"></i>
+                        </button>
+                    </div>
+
+                    <div class="card-body p-5">
 
 
-                    <div class="container py-5" style="max-width: 100%;">
 
-                        <h2 class="text-muted mb-4 fw-bold">Catalogo de eventos</h2>
 
-                        <!-- CONTENEDOR PRINCIPAL CON PADDING REAL -->
-                        <div style="
-                             background: #ebe8e8;
-                             padding: 30px;                 /* PADDING QUE FALTABA */
-                             border-radius: 15px;
-                             ">
+                        <div class="container py-5" style="max-width: 100%;">
 
-                            <!-- CARRUSEL -->
-                            <div id="sliderEventos" style="
-                                 white-space: nowrap;
-                                 overflow-x: auto;
-                                 overflow-y: hidden;
-                                 padding: 10px 0;           /* SEPARACIÓN INTERNA */
-                                 scroll-behavior: smooth;
+                            <h2 class="text-muted mb-4 fw-bold">Catalogo de eventos</h2>
+
+                            <!-- CONTENEDOR PRINCIPAL CON PADDING REAL -->
+                            <div style="
+                               
+                                 padding: 30px;                 /* PADDING QUE FALTABA */
+                                 border-radius: 15px;
                                  ">
 
-                                <!-- CARDS CENTRADAS -->
-                                <div id="track" class="d-flex" style="gap: 30px; justify-content: flex-start;">
-                                    <%
-                                        for (Evento e : lista) {
-                                            String img = (e.getImagen() != null && !e.getImagen().isEmpty())
-                                                    ? "img/" + e.getImagen()
-                                                    : "img/no-image.png";
-                                    %>
+                                <!-- CARRUSEL -->
+                                <div id="sliderEventos" style="
+                                     white-space: nowrap;
+                                     overflow-x: auto;
+                                     overflow-y: hidden;
+                                     padding: 10px 0;           /* SEPARACIÓN INTERNA */
+                                     scroll-behavior: smooth;
+                                     ">
 
-                                    <!-- TARJETAS MÁS GRANDES -->
-                                    <div style="display: inline-block; width: 400px;">
-                                        <div class="card shadow-sm" style="border-radius: 12px; width: 400px;">
+                                    <!-- CARDS CENTRADAS -->
+                                    <div id="track" class="d-flex" style="gap: 30px; justify-content: flex-start;">
+                                        <%
+                                            for (Evento e : lista) {
+                                                String img = (e.getImagen() != null && !e.getImagen().isEmpty())
+                                                        ? "img/" + e.getImagen()
+                                                        : "img/no-image.png";
+                                        %>
 
-                                            <div style="width: 100%; height: 220px; overflow: hidden; border-radius: 10px;">
-    <img src="<%= request.getContextPath() %>/images/<%= 
-                e.getImagen() != null && !e.getImagen().isEmpty() 
-                ? e.getImagen() 
-                : "fondoappp.jpg" %>"
-         alt="Imagen del evento"
-         style="width: 100%; height: 100%; object-fit: cover; object-position: center;">
-</div>
+                                        <!-- TARJETAS MÁS GRANDES -->
+                                        <div style="display: inline-block; width: 400px;">
+                                            <div class="card shadow-sm" style="border-radius: 12px; width: 400px;">
+
+                                                <div style="width: 100%; height: 220px; overflow: hidden; border-radius: 10px;">
+                                                    <img src="<%= request.getContextPath()%>/images/<%=e.getImagen() != null && !e.getImagen().isEmpty()
+                                                             ? e.getImagen()
+                                                             : "fondoappp.jpg"%>"
+                                                         alt="Imagen del evento"
+                                                         style="width: 100%; height: 100%; object-fit: cover; object-position: center;">
+                                                </div>
 
 
 
-                                            <div class="card-body">
-                                                <h5 class="card-title fw-bold"><%= e.getTitulo()%></h5>
+                                                <div class="card-body">
+                                                    <h5 class="card-title fw-bold"><%= e.getTitulo()%></h5>
 
-                                                <p class="card-text text-muted" 
-                                                   style="white-space: normal; 
-                                                   font-size: 0.6rem; font-weight: 700; color: #000;
-                                                   overflow-wrap: break-word; 
-                                                   word-wrap: break-word;">
-                                                    <%= e.getDescripcion()%>
-                                                </p>
+                                                    <p class="card-text text-muted" 
+                                                       style="white-space: normal; 
+                                                       font-size: 0.6rem; font-weight: 700; color: #000;
+                                                       overflow-wrap: break-word; 
+                                                       word-wrap: break-word;">
+                                                        <%= e.getDescripcion()%>
+                                                    </p>
 
-                                                <p class="text-primary fw-semibold">
-                                                    Fecha: <%= e.getFechaEvento()%>
-                                                </p>
+                                                    <p class="text-primary fw-semibold">
+                                                        Fecha: <%= e.getFechaEvento()%>
+                                                    </p>
+                                                </div>
+
+                                                <div class="card-footer text-center bg-white">
+                                                    <a href="javascript:void(0);" 
+                                                       class="btn btn-dark w-100 btn-ver-detalles"
+
+                                                       data-id="<%= e.getIdEvento()%>"
+                                                       data-titulo="<%= e.getTitulo()%>"
+                                                       data-categoria="<%= e.getCategoria()%>"
+                                                       data-fecha="<%= e.getFechaEvento() != null ? e.getFechaEvento() : "-"%>"
+                                                       data-lugar="<%= e.getLugar() != null ? e.getLugar() : "-"%>"
+                                                       data-estado="<%= e.getEstado()%>"
+                                                       data-descripcion="<%= e.getDescripcion() != null ? e.getDescripcion() : "-"%>"
+
+                                                       <%
+                                                           String rutaImg = (e.getImagen() != null && !e.getImagen().isEmpty())
+                                                                   ? request.getContextPath() + "/images/" + e.getImagen()
+                                                                   : request.getContextPath() + "/images/fondoappp.jpg";
+                                                       %>
+
+                                                       data-imagen="<%= rutaImg%>">
+
+                                                        Ver Detalles
+                                                    </a>
+
+
+                                                </div>
+
                                             </div>
-
-                                            <div class="card-footer text-center bg-white">
-                                                <a href="javascript:void(0);" 
-                                                   class="btn btn-dark w-100 btn-ver-detalles"
-
-                                                   data-id="<%= e.getIdEvento()%>"
-                                                   data-titulo="<%= e.getTitulo()%>"
-                                                   data-categoria="<%= e.getCategoria()%>"
-                                                   data-fecha="<%= e.getFechaEvento() != null ? e.getFechaEvento() : "-"%>"
-                                                   data-lugar="<%= e.getLugar() != null ? e.getLugar() : "-"%>"
-                                                   data-estado="<%= e.getEstado()%>"
-                                                   data-descripcion="<%= e.getDescripcion() != null ? e.getDescripcion() : "-"%>"
-
-                                                   <%
-                                                       String rutaImg = (e.getImagen() != null && !e.getImagen().isEmpty())
-                                                               ? request.getContextPath() + "/images/" + e.getImagen()
-                                                               : request.getContextPath() + "/images/fondoappp.jpg";
-                                                   %>
-
-                                                   data-imagen="<%= rutaImg%>">
-
-                                                    Ver Detalles
-                                                </a>
-
-
-                                            </div>
-
                                         </div>
-                                    </div>
 
-                                    <% }%>
+                                        <% }%>
+                                    </div>
                                 </div>
                             </div>
                         </div>
+
+
+
+
+                        <!-- SCRIPT AUTOSCROLL INFINITO -->
+                        <script>
+                            const slider = document.getElementById("sliderEventos");
+                            let speed = 1;
+                            let autoScroll;
+
+                            function startAutoScroll() {
+                                autoScroll = setInterval(() => {
+                                    slider.scrollLeft += speed;
+
+
+
+                                }, 20);
+                            }
+
+                            function stopAutoScroll() {
+                                clearInterval(autoScroll);
+                            }
+
+                            // Iniciar auto scroll
+                            startAutoScroll();
+
+                            // Poner pausa si se coloca el mouse encima
+                            slider.addEventListener("mouseover", stopAutoScroll);
+
+                            // Reanudar cuando sale el mouse
+                            slider.addEventListener("mouseleave", startAutoScroll);
+                        </script>
+
+
                     </div>
 
-
-
-
-                    <!-- SCRIPT AUTOSCROLL INFINITO -->
-                    <script>
-                        const slider = document.getElementById("sliderEventos");
-                        let speed = 1;
-                        let autoScroll;
-
-                        function startAutoScroll() {
-                            autoScroll = setInterval(() => {
-                                slider.scrollLeft += speed;
-
-
-
-                            }, 20);
-                        }
-
-                        function stopAutoScroll() {
-                            clearInterval(autoScroll);
-                        }
-
-                        // Iniciar auto scroll
-                        startAutoScroll();
-
-                        // Poner pausa si se coloca el mouse encima
-                        slider.addEventListener("mouseover", stopAutoScroll);
-
-                        // Reanudar cuando sale el mouse
-                        slider.addEventListener("mouseleave", startAutoScroll);
-                    </script>
-
-
                 </div>
-
             </div>
         </div>
-
 
 
 

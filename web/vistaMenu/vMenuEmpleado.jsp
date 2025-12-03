@@ -46,10 +46,8 @@
 
         <div class="profile-info">
             <h6 class="mb-1"><%= t.getNombre() + " " + t.getApellido()%></h6>
-            <p class="mb-1 text-secondary">
-                Cargo: 
-                <%= (t.getIdTipo() == 1) ? "Empleado" : "Cliente"%>
-            </p>
+            
+            
 
             <p class="mb-0 text-primary"><i class="bi bi-envelope-fill me-1"></i><%= t.getEmail()%></p>
         </div>

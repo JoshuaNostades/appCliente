@@ -30,10 +30,11 @@
 
             <!-- LADO IZQUIERDO -->
             <div class="col-md-4 d-flex flex-column justify-content-center align-items-center text-white p-4"
-                 style="background: linear-gradient(135deg, #476e9e, #304c89);">
+                 style="background: linear-gradient(135deg, #feda75, #fa7e1e, #d62976, #962fbf, #4f5bd5);
+">
                 <h2 class="text-center fw-semibold">Bienvenido de nuevo</h2>
                 <p class="text-center small">Accede a tus eventos y gestiona tus reservas de manera segura.</p>
-                <img src="<%= request.getContextPath()%>/images/imgCelb.png"
+                <img src="<%= request.getContextPath()%>/images/fiesta.png"
                      class="img-fluid mt-3" alt="Eventos">
             </div>
 
@@ -88,10 +89,6 @@
         </div>
     </div>
 
-    <!-- FOOTER -->
-    <footer class="bg-dark text-center text-white py-3 mt-auto">
-        &copy; 2025 EVENTOS PERU - Todos los derechos reservados
-    </footer>
     
     
       <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
